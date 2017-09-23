@@ -1,1 +1,7 @@
-<h1>This is student component</h1>
+<h1>{{title}}</h1>
+
+<div [hidden]="isVisible" [innerText]="title">
+</div>
+
+<button class="btn btn-primary" (click)="toggle()">Toggle</button>
+<app-student-list [studentList]="studentData" (hidden)="handleChildEvent($event)" ></app-student-list>

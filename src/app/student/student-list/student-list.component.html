@@ -1,0 +1,56 @@
+{{studentList| json}}
+
+<div *ngIf="isVisible">
+  <table class="table">
+    <thead>
+      <tr>
+        <th>
+          ID
+        </th>
+        <th>
+          Name
+        </th>
+        <th>
+          Age
+        </th>
+        <th>
+          DOB
+        </th>
+        <th>
+          Addess
+        </th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr *ngFor="let student of studentList;let i= index">
+        <td>
+          {{student.id}} + {{i+1}}
+        </td>
+        <td>
+          {{student.name}}
+        </td>
+        <td>
+          {{student.age}}
+        </td>
+        <td>
+          {{student.dob}}
+        </td>
+        <td>
+          {{student.address}}
+        </td>
+      </tr>
+    </tbody>
+  </table>
+</div>
+
+<button class="btn btn-primary" (click)="toggle()">Toggle</button>
+
+{{userRole}}
+<div [ngSwitch]="userRole">
+  <div *ngSwitchCase="'User'">
+    This is User
+  </div>
+  <div *ngSwitchCase="'Admin'">
+    This is Admin
+  </div>
+</div>
