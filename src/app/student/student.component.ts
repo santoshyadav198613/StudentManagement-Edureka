@@ -1,50 +1,52 @@
 import {
   Component, OnInit, ViewChild, ViewChildren, QueryList,
-  AfterViewInit, AfterContentInit, DoCheck
+  AfterViewInit, AfterViewChecked, DoCheck, OnDestroy
 } from '@angular/core';
-import { Student } from './student';
+import { Student } from '../service/student/student';
 import { StudentListComponent } from './student-list/student-list.component';
+import { StudentService } from '../service/student/student.service';
 
 @Component({
   selector: 'app-student',
   templateUrl: './student.component.html',
-  styleUrls: ['./student.component.css']
+  styleUrls: ['./student.component.css'],
+  providers: [StudentService]
 })
-export class StudentComponent implements OnInit, AfterViewInit, AfterContentInit, DoCheck {
+export class StudentComponent implements OnInit, AfterViewInit, AfterViewChecked, DoCheck, OnDestroy {
   studentData = Array<Student>();
+  student: Student = new Student();
   title: string = 'Student List';
   isVisible: boolean = true;
   @ViewChild(StudentListComponent)
   studentListComponent: StudentListComponent;
   @ViewChildren(StudentListComponent)
   studenttListComp: QueryList<StudentListComponent>;
-  constructor() { }
+  error: string;
+
+  constructor(private studService: StudentService) {
+    console.log(studService);
+  }
 
 
   ngOnInit() {
     console.log('This is Parent Component init method');
-    this.studentData = [
-      { id: 1, name: 'Student1', age: 12, address: 'Mumbai', dob: new Date('09/23/2002') },
-      { id: 2, name: 'Student2', age: 12, address: 'Pune', dob: new Date('01/23/2002') },
-      { id: 3, name: 'Student3', age: 12, address: 'Banglore', dob: new Date('04/23/2002') }
-    ]
-
-    this.studentListComponent.studentList = this.studentData;
-    //console.log(this.studenttListComp);
+    this.studentData = this.studService.getStudents();
   }
 
   ngDoCheck(): void {
-
-    console.log('do check event is called');
+    if (this.student.name !== undefined && this.student.name.length > 5) {
+      this.error = "The lenght should be below 5";
+    }
+    console.log('do check event is called' + this.title);
   }
 
   ngAfterViewInit() {
-    // console.log(this.studenttListComp);
-    // this.studenttListComp.forEach((data) => data.studentList = this.studentData);
+    console.log(this.studenttListComp);
+    //this.studenttListComp.forEach((data) => setTimeout(() => data.studentList = this.studentData, 0));
   }
 
-  ngAfterContentInit() {
-
+  ngAfterViewChecked() {
+    console.log(this.studenttListComp);
   }
 
 
@@ -55,5 +57,15 @@ export class StudentComponent implements OnInit, AfterViewInit, AfterContentInit
   handleChildEvent(hidden: boolean) {
     console.log(hidden);
     this.studentData[0].id = 900;
+  }
+
+  ngOnDestroy(): void {
+    console.log('This is destroy lifecycle hooks');
+  }
+
+
+  addStudent() {
+    this.studService.addStudent(this.student);
+    // this.studentData.push(student);
   }
 }
