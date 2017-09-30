@@ -1,5 +1,5 @@
 import { Injectable } from '@angular/core';
-import { HttpClient } from '@angular/common/http';
+import { HttpClient, HttpRequest } from '@angular/common/http';
 import { Post } from './post';
 
 @Injectable()
@@ -9,6 +9,15 @@ export class PostService {
 
   getPosts() {
     return this.http.get<Post[]>('https://jsonplaceholder.typicode.com/posts');
+  }
+
+  addPost(post: Post) {
+    return this.http.post('https://jsonplaceholder.typicode.com/posts', post);
+  }
+
+  getPostsData() {
+    let request = new HttpRequest('GET', 'https://jsonplaceholder.typicode.com/posts', { reportProgress: true });
+    return this.http.request(request);
   }
 
 }
