@@ -56,6 +56,6 @@
     </div>
   </div>
   <div>
-    <button type="submit" class="btn btn-primary">Add Employee</button>
+    <button [disabled]="employeeForm.invalid" type="submit" class="btn btn-primary">Add Employee</button>
   </div>
 </form>

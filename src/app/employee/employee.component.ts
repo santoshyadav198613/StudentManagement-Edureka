@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { FormArray, FormBuilder, FormControl, FormGroup } from '@angular/forms';
+import { FormArray, FormBuilder, FormControl, FormGroup, Validators } from '@angular/forms';
 @Component({
   selector: 'app-employee',
   templateUrl: './employee.component.html',
@@ -11,14 +11,14 @@ export class EmployeeComponent implements OnInit {
 
   ngOnInit() {
     this.employeeForm = this.fb.group({
-      id: [''],
-      name: [''],
-      dob: [''],
+      id: ['', Validators.required],
+      name: ['', Validators.required],
+      dob: ['', Validators.required],
       address: this.fb.group({
-        addressLine1: [''],
-        addressLine2: [''],
-        city: [''],
-        state: ['']
+        addressLine1: ['', Validators.required],
+        addressLine2: ['', Validators.required],
+        city: ['', Validators.required],
+        state: ['', Validators.required]
       }),
       experiences: this.fb.array([this.buildForm()])
     });
@@ -27,10 +27,10 @@ export class EmployeeComponent implements OnInit {
 
   buildForm() {
     return this.fb.group({
-      previousEmployer: [''],
-      startDate: [''],
-      endDate: [''],
-      designation: ['']
+      previousEmployer: ['', Validators.required],
+      startDate: ['', Validators.required],
+      endDate: ['', Validators.required],
+      designation: ['', Validators.required]
     });
   }
 
