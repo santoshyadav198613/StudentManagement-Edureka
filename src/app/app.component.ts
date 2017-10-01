@@ -1,6 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import { ProductService } from './service/product/product.service';
 import { StudentService } from './service/student/student.service';
+import { LoginService } from './service/login/login.service';
+
 @Component({
   selector: 'app-root',
   templateUrl: './app.component.html',
@@ -10,7 +12,7 @@ import { StudentService } from './service/student/student.service';
 export class AppComponent implements OnInit {
   title = 'app';
   product: any[];
-  constructor(private productService: ProductService, private studentService: StudentService) {
+  constructor(private productService: ProductService, private studentService: StudentService, private loginService: LoginService) {
     console.log(studentService);
   }
 
