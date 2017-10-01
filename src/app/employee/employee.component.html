@@ -6,6 +6,10 @@
 <form [formGroup]="employeeForm">
   <div class="form-group">
     <input type="number" class="form-control" formControlName="id" name="id" placeholder="Employee Id">
+    {{employeeForm.get('id').valid}}
+    <div [hidden]="employeeForm.get('id').valid">
+        The ID is required
+    </div>
   </div>
   <div class="form-group">
     <input type="text" class="form-control" formControlName="name" name="name" placeholder="Employee Name">
@@ -16,6 +20,7 @@
   <div formGroupName="address">
     <div class="form-group">
       <input type="text" class="form-control" formControlName="addressLine1" name="addressLine1" placeholder="Address Line1">
+      {{employeeForm.get('address.addressLine1').valid}}
     </div>
     <div class="form-group">
       <input type="text" class="form-control" formControlName="addressLine2" name="addressLine2" placeholder="Address Line2">
