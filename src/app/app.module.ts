@@ -3,7 +3,6 @@ import { NgModule } from '@angular/core';
 import { SharedModule } from './shared/shared.module';
 
 import { RoutingModule } from './routing/routing.module';
-import { StudentModule } from './student/student.module';
 
 import { AppComponent } from './app.component';
 import { StudentService } from './service/student/student.service';
@@ -27,10 +26,9 @@ import { AuthGuard } from './service/guards/auth.guard';
   imports: [
     BrowserModule,
     SharedModule,
-    StudentModule,
     RoutingModule
   ],
-  providers: [ProductService, StudentService, LoginService,AuthGuard],
+  providers: [ProductService, StudentService, LoginService, AuthGuard],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

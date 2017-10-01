@@ -12,7 +12,7 @@ import { AuthGuard } from '../service/guards/auth.guard';
     CommonModule,
     SharedModule,
     RouterModule.forChild([
-      { path: 'student', component: StudentComponent , canActivate : [AuthGuard] }
+      { path: '', component: StudentComponent , canActivate : [AuthGuard] }
     ])
   ],
   declarations: [StudentComponent,

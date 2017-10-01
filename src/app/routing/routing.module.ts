@@ -13,6 +13,7 @@ import { PagenotfoundComponent } from '../pagenotfound/pagenotfound.component';
     RouterModule.forRoot([
       { path: 'employee', component: EmployeeComponent },
       { path: 'post', component: PostComponent },
+      { path: 'student', loadChildren: '../student/student.module#StudentModule' },
       { path: 'login', component: LoginComponent },
       { path: '', redirectTo: 'login', pathMatch: 'full' },//default routing
       { path: '**', component: PagenotfoundComponent } //wild card character 
