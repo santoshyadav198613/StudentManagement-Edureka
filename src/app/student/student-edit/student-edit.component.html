@@ -1,0 +1,16 @@
+<h2 md-dialog-title>Edit stduent {{student.name}} </h2>
+<mat-dialog-content>
+  <form #studentEditForm="ngForm">
+    <div class="form-group">
+        <input type="text" class="form-control" [(ngModel)]="student.name" name="studentname" placeholder="Student Name">
+    </div>
+    <div class="form-group">
+      <input type="number" class="form-control" [(ngModel)]="student.fee" name="Fee" placeholder="Student Fee">
+    </div>
+  </form>
+</mat-dialog-content>
+<mat-dialog-actions>
+  <button mat-button mat-dialog-close>No</button>
+  <!-- Can optionally provide a result for the closing dialog. -->
+  <button mat-button (click)="edit()">Yes</button>
+</mat-dialog-actions>

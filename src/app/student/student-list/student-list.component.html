@@ -26,6 +26,9 @@
         <th>
           Details
         </th>
+        <th>
+          Edit
+        </th>
       </tr>
     </thead>
     <tbody>
@@ -50,6 +53,9 @@
         </td>
         <td>
           <button type="buttson" [routerLink]="[student.id]" class="btn btn-primary" >Details</button>
+        </td>
+        <td>
+          <button type="button" mat-raised-button color="primary" (click)="edit(student)" >Edit</button>
         </td>
       </tr>
     </tbody>

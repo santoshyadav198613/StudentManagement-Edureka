@@ -10,6 +10,7 @@ import { StudentDetailsComponent } from './student-details/student-details.compo
 
 import { NamePipe } from '../common/pipes/name.pipe';
 import { FeePipe } from '../common/pipes/fee.pipe';
+import { StudentEditComponent } from './student-edit/student-edit.component';
 
 @NgModule({
   imports: [
@@ -26,6 +27,7 @@ import { FeePipe } from '../common/pipes/fee.pipe';
   ],
   declarations: [StudentComponent,
     StudentListComponent,
-    StudentDetailsComponent, NamePipe, FeePipe]
+    StudentDetailsComponent, NamePipe, FeePipe, StudentEditComponent],
+  entryComponents: [StudentEditComponent]
 })
 export class StudentModule { }

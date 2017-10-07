@@ -1,5 +1,6 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
+import {BrowserAnimationsModule} from '@angular/platform-browser/animations';
 import { SharedModule } from './shared/shared.module';
 
 import { RoutingModule } from './routing/routing.module';
@@ -28,6 +29,7 @@ import { HoverDirective } from './directives/hover.directive';
   ],
   imports: [
     BrowserModule,
+    BrowserAnimationsModule,
     SharedModule,
     RoutingModule
   ],
