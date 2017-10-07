@@ -50,4 +50,6 @@
 
 <app-student-list [studentList]="studentData" (hidden)="handleChildEvent($event)"></app-student-list>
 
+<router-outlet></router-outlet>
+
 <button class="btn btn-primary" (click)="addStudent()">Add Student</button>

@@ -8,13 +8,14 @@ import { Student } from '../../service/student/student';
   templateUrl: './student-list.component.html',
   styleUrls: ['./student-list.component.css']
   //,
- // changeDetection: ChangeDetectionStrategy.OnPush
+  // changeDetection: ChangeDetectionStrategy.OnPush
 })
 export class StudentListComponent implements OnInit, OnChanges {
   @Input() studentList: Array<Student>;
   isVisible: boolean = false;
   @Output() hidden = new EventEmitter<boolean>();
   userRole: string = 'User';
+  fee: number = 0;
   constructor() { }
 
   ngOnChanges(changes: SimpleChanges): void {

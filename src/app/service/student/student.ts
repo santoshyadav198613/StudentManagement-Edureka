@@ -4,4 +4,5 @@ export class Student {
     address: string;
     age: number;
     dob: Date;
+    fee: number;
 }

@@ -1,9 +1,9 @@
 <form #loginForm="ngForm" (submit)="login()" novalidate>
   <div class="form-group">
-    <input class="form-control" type="text" name="username" [(ngModel)]="user.userName" placeHolder="UserName">
+    <input appHover class="form-control" type="text" [color]="color" name="username" [(ngModel)]="user.userName" placeHolder="UserName">
   </div>
   <div class="form-group">
-    <input class="form-control" type="password" name="password" [(ngModel)]="user.password" placeHolder="Password">
+    <input appHover class="form-control" type="password" name="password" [(ngModel)]="user.password" placeHolder="Password">
   </div>
   <div>
     <button type="submit" class="btn btn-primary">Login</button>

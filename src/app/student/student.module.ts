@@ -8,17 +8,24 @@ import { StudentListComponent } from './student-list/student-list.component';
 import { AuthGuard } from '../service/guards/auth.guard';
 import { StudentDetailsComponent } from './student-details/student-details.component';
 
+import { NamePipe } from '../common/pipes/name.pipe';
+import { FeePipe } from '../common/pipes/fee.pipe';
+
 @NgModule({
   imports: [
     CommonModule,
     SharedModule,
     RouterModule.forChild([
-      { path: '', component: StudentComponent, canActivate: [AuthGuard] },
-      { path: ':id', component: StudentDetailsComponent }
+      {
+        path: '', component: StudentComponent, canActivate: [AuthGuard],
+        children: [
+          { path: ':id', component: StudentDetailsComponent }
+        ]
+      }
     ])
   ],
   declarations: [StudentComponent,
     StudentListComponent,
-    StudentDetailsComponent]
+    StudentDetailsComponent, NamePipe, FeePipe]
 })
 export class StudentModule { }

@@ -12,9 +12,11 @@ import { User } from '../service/login/user';
 })
 export class LoginComponent implements OnInit {
   user: User = new User();
+  color: string;
   constructor(private loginService: LoginService, private router: Router) { }
 
   ngOnInit() {
+    this.color = 'blue';
   }
 
   login() {

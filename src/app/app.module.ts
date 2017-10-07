@@ -14,6 +14,8 @@ import { PagenotfoundComponent } from './pagenotfound/pagenotfound.component';
 import { LoginComponent } from './login/login.component'
 import { LoginService } from './service/login/login.service';
 import { AuthGuard } from './service/guards/auth.guard';
+import { HoverDirective } from './directives/hover.directive';
+
 
 @NgModule({
   declarations: [
@@ -21,7 +23,8 @@ import { AuthGuard } from './service/guards/auth.guard';
     EmployeeComponent,
     PostComponent,
     PagenotfoundComponent,
-    LoginComponent
+    LoginComponent,
+    HoverDirective
   ],
   imports: [
     BrowserModule,

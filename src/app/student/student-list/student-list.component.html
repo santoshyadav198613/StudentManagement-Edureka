@@ -1,6 +1,7 @@
-{{studentList| json}}
+<!-- {{studentList| json}} -->
 
-
+{{fee}}
+<input type="number" class="form-control" [(ngModel)]="fee" name="fee">
   <table class="table">
     <thead>
       <tr>
@@ -17,6 +18,9 @@
           DOB
         </th>
         <th>
+          Fee
+        </th>
+        <th>
           Addess
         </th>
         <th>
@@ -25,24 +29,27 @@
       </tr>
     </thead>
     <tbody>
-      <tr *ngFor="let student of studentList;let i= index">
+      <tr *ngFor="let student of studentList | fee : fee  ;let i= index">
         <td>
           {{student.id}}
         </td>
         <td>
-          {{student.name}}
+          {{student.name | name : 'test' : 3  | uppercase}}
         </td>
         <td>
           {{student.age}}
         </td>
         <td>
-          {{student.dob}}
+          {{student.dob | date:'dd-MM-yyyy'}}
         </td>
         <td>
-          {{student.address}}
+          {{student.fee | currency:'INR'}}
         </td>
         <td>
-          <button type="button" [routerLink]="[student.id]" class="btn btn-primary" >Details</button>
+          {{student.address | lowercase}}
+        </td>
+        <td>
+          <button type="buttson" [routerLink]="[student.id]" class="btn btn-primary" >Details</button>
         </td>
       </tr>
     </tbody>
