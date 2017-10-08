@@ -32,9 +32,9 @@
       </tr>
     </thead>
     <tbody>
-      <tr *ngFor="let student of studentList | fee : fee  ;let i= index">
+      <tr *ngFor="let student of studentList ;let i= index">
         <td>
-          {{student.id}}
+          {{student._id}}
         </td>
         <td>
           {{student.name | name : 'test' : 3  | uppercase}}

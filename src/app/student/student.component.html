@@ -14,16 +14,16 @@
 <input type="text" [(ngModel)]="title" name="name"> -->
 
 <form #studentForm="ngForm"  (submit)="addStudent()" novalidate>
-  <div class="form-group">
+  <!-- <div class="form-group">
         <input required class="form-control" #studentid="ngModel" type="number" [(ngModel)]="student.id" name="id" placeholder="Student Id">
         {{studentid.value|json}}
         <div [hidden]="studentid.valid" class="alter alert-danger">
             Please enter student Id.
-            <!-- {{studentid.valid|json}}
+             {{studentid.valid|json}}
             {{studentid.invalid|json}}
-            {{studentid.errors|json}} -->
+            {{studentid.errors|json}} 
         </div>
-  </div>
+  </div> -->
   <div class="form-group">
         <input required class="form-control" maxlength="5" minlength="3"   #studentName="ngModel" type="text" [(ngModel)]="student.name" name="name" placeholder="Student Name">
         <div [hidden]="studentName.valid">
@@ -47,7 +47,7 @@
       <button [disabled]="studentForm.invalid" type="submit" class="btn btn-primary">Add Student</button>
   </div>
 </form>
-
+{{studentData|json}}
 <app-student-list [studentList]="studentData" (hidden)="handleChildEvent($event)"></app-student-list>
 
 <router-outlet></router-outlet>

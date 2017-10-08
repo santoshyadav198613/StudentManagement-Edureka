@@ -30,10 +30,14 @@ export class StudentComponent implements OnInit, AfterViewInit, AfterViewChecked
 
   ngOnInit() {
     console.log('This is Parent Component init method');
-    if (this.studService.isLoggedIn) {
-      this.studentData = this.studService.getStudents();
-    }
+    this.loadStudent();
 
+  }
+
+  loadStudent() {
+    if (this.studService.isLoggedIn) {
+      this.studService.getStudents().subscribe((data) => this.studentData = data);
+    }
   }
 
   ngDoCheck(): void {
@@ -59,7 +63,7 @@ export class StudentComponent implements OnInit, AfterViewInit, AfterViewChecked
 
   handleChildEvent(hidden: boolean) {
     console.log(hidden);
-    this.studentData[0].id = 900;
+    this.studentData[0]._id = 900;
   }
 
   ngOnDestroy(): void {
@@ -68,7 +72,8 @@ export class StudentComponent implements OnInit, AfterViewInit, AfterViewChecked
 
 
   addStudent() {
-    this.studService.addStudent(this.student);
+    this.studService.addStudent(this.student).subscribe((data) => this.loadStudent()
+    );
     // this.studentData.push(student);
   }
 }
