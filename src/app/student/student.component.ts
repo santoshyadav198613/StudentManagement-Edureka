@@ -10,7 +10,7 @@ import { StudentService } from '../service/student/student.service';
   selector: 'app-student',
   templateUrl: './student.component.html',
   styleUrls: ['./student.component.css'],
-  providers: [StudentService]
+  providers: []
 })
 export class StudentComponent implements OnInit, AfterViewInit, AfterViewChecked, DoCheck, OnDestroy {
   studentData = Array<Student>();

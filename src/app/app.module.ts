@@ -34,7 +34,7 @@ import { HTTP_INTERCEPTORS } from '@angular/common/http';
     SharedModule,
     RoutingModule
   ],
-  providers: [ProductService, StudentService, LoginService, AuthGuard, {
+  providers: [ProductService,  LoginService, AuthGuard, {
     provide: HTTP_INTERCEPTORS, useClass: ApiInterceptor, multi: true
   }],
   bootstrap: [AppComponent]

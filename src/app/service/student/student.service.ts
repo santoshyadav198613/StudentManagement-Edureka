@@ -8,7 +8,9 @@ export class StudentService {
     { id: 2, name: 'Student2', age: 12, address: 'Pune', dob: new Date('01/23/2002') , fee: 25000},
     { id: 3, name: 'Student3', age: 12, address: 'Banglore', dob: new Date('04/23/2002'), fee: 35000 }
   ];
-  constructor() { }
+  constructor(isLoggedIn: boolean) {
+    console.log(isLoggedIn);
+   }
 
   getStudents() {
     return this.studentData;
