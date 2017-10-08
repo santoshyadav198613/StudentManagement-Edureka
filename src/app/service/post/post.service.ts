@@ -1,5 +1,5 @@
 import { Injectable } from '@angular/core';
-import { HttpClient, HttpRequest } from '@angular/common/http';
+import { HttpClient, HttpRequest, HttpHeaders } from '@angular/common/http';
 import { Post } from './post';
 
 @Injectable()
@@ -8,7 +8,7 @@ export class PostService {
   constructor(private http: HttpClient) { }
 
   getPosts() {
-    return this.http.get<Post[]>('https://jsonplaceholder.typicode.com/posts');
+    return this.http.get<Post[]>('https://jsonplaceholder.typicode.com/posts', { headers: new HttpHeaders().set('token', 'testtoken') });
   }
 
   addPost(post: Post) {

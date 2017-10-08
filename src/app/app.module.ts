@@ -1,6 +1,6 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
-import {BrowserAnimationsModule} from '@angular/platform-browser/animations';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { SharedModule } from './shared/shared.module';
 
 import { RoutingModule } from './routing/routing.module';
@@ -16,7 +16,8 @@ import { LoginComponent } from './login/login.component'
 import { LoginService } from './service/login/login.service';
 import { AuthGuard } from './service/guards/auth.guard';
 import { HoverDirective } from './directives/hover.directive';
-
+import { ApiInterceptor } from './interceptor/api.interceptor';
+import { HTTP_INTERCEPTORS } from '@angular/common/http';
 
 @NgModule({
   declarations: [
@@ -33,7 +34,9 @@ import { HoverDirective } from './directives/hover.directive';
     SharedModule,
     RoutingModule
   ],
-  providers: [ProductService, StudentService, LoginService, AuthGuard],
+  providers: [ProductService, StudentService, LoginService, AuthGuard, {
+    provide: HTTP_INTERCEPTORS, useClass: ApiInterceptor, multi: true
+  }],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

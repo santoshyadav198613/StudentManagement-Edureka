@@ -15,7 +15,7 @@ export class PostComponent implements OnInit {
 
   ngOnInit() {
     // console.log('this is post component');
-    // this.postService.getPosts().subscribe((data) => this.postData = data);
+     this.postService.getPosts().subscribe((data) => this.postData = data);
 
     this.postService.getPostsData().subscribe((event) => {
       if (event.type === HttpEventType.DownloadProgress) {
