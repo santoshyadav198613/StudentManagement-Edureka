@@ -30,7 +30,10 @@ export class StudentComponent implements OnInit, AfterViewInit, AfterViewChecked
 
   ngOnInit() {
     console.log('This is Parent Component init method');
-    this.studentData = this.studService.getStudents();
+    if (this.studService.isLoggedIn) {
+      this.studentData = this.studService.getStudents();
+    }
+
   }
 
   ngDoCheck(): void {

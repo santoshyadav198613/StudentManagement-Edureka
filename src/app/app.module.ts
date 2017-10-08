@@ -18,6 +18,7 @@ import { AuthGuard } from './service/guards/auth.guard';
 import { HoverDirective } from './directives/hover.directive';
 import { ApiInterceptor } from './interceptor/api.interceptor';
 import { HTTP_INTERCEPTORS } from '@angular/common/http';
+import { StudentServiceFactory } from './service/student/student.factory';
 
 @NgModule({
   declarations: [
@@ -34,7 +35,7 @@ import { HTTP_INTERCEPTORS } from '@angular/common/http';
     SharedModule,
     RoutingModule
   ],
-  providers: [ProductService,  LoginService, AuthGuard, {
+  providers: [ProductService, LoginService, AuthGuard, {
     provide: HTTP_INTERCEPTORS, useClass: ApiInterceptor, multi: true
   }],
   bootstrap: [AppComponent]
